@@ -1,6 +1,6 @@
 Summary:	DocBook - DTD for technical documentation
 Summary(pl):	DocBook - DTD przeznaczone do pisania dokumentacji technicznej 
-%define ver	%{ver}
+%define ver	4.1
 %define sver	41
 Name:		docbook-dtd%{sver}-sgml
 Version:	1.0
