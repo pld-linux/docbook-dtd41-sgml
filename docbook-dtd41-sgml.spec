@@ -4,17 +4,16 @@ Summary(pl):	DocBook - DTD przeznaczone do pisania dokumentacji technicznej
 %define sver	41
 Name:		docbook-dtd%{sver}-sgml
 Version:	1.0
-Release:	13
+Release:	14
 Vendor:		OASIS
 License:	Free
 Group:		Applications/Publishing/SGML
 URL:		http://www.oasis-open.org/docbook/
 Source0:	http://www.oasis-open.org/docbook/sgml/%{ver}/docbk%{sver}.zip
 BuildRequires:	unzip
-BuildRequires:	sgml-common >= 0.5-9
 Requires(post,postun):	sgml-common >= 0.5
 Requires:	sgmlparser
-Requires:	sgml-common >= 0.5-9
+Requires:	sgml-common >= 0.5
 Provides:	docbook-dtd
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -39,13 +38,10 @@ chmod 644 *
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}
 
-for ent in *.dtd *.mod *.dcl ; do
-	sgml-iso-ent-fix < $ent > $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/$ent
-done
+install  *.dtd *.mod *.dcl $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/
 
 # install catalog (but filter out ISO entities)
 grep -v 'ISO ' docbook.cat > $RPM_BUILD_ROOT%{_datadir}/sgml/docbook/sgml-dtd-%{ver}/catalog
-
 
 %clean
 rm -rf $RPM_BUILD_ROOT
