@@ -10,6 +10,7 @@ License:	Free
 Group:		Applications/Publishing/SGML
 URL:		http://www.oasis-open.org/docbook/
 Source0:	http://www.oasis-open.org/docbook/sgml/%{ver}/docbk%{sver}.zip
+# Source0-md5:	489f6ff2a2173eb1e14216c10533ede2
 BuildRequires:	unzip
 Requires(post,postun):	sgml-common >= 0.5
 Requires:	sgmlparser
