@@ -4,7 +4,7 @@ Summary(pl):	DocBook - DTD przeznaczone do pisania dokumentacji technicznej
 %define sver	41
 Name:		docbook-dtd%{sver}-sgml
 Version:	1.0
-Release:	1
+Release:	11
 Vendor:		OASIS
 License:	Free
 Group:		Applications/Publishing/SGML
@@ -12,14 +12,14 @@ Group(de):	Applikationen/Publizieren/SGML
 Group(pl):	Aplikacje/Publikowanie/SGML
 URL:		http://www.oasis-open.org/docbook/
 Source0:	http://www.oasis-open.org/docbook/sgml/%{ver}/docbk%{sver}.zip
+BuildRequires:	unzip
 Requires:	sgml-common >= 0.5
 Requires:	sgmlparser
 Provides:	docbook-dtd
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	docbook%{sver}-dtd
 Obsoletes:	docbook-sgml-%{ver}
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-BuildArch:	noarch
-
 
 %description
 DocBook - DTD for technical documentation.
@@ -56,7 +56,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %postun
 /usr/bin/install-catalog --remove /etc/sgml/sgml-docbook-%{ver}.cat /usr/share/sgml/docbook/sgml-dtd-%{ver}/catalog > /dev/null
-
 
 %files
 %defattr(644,root,root,755)
