@@ -30,8 +30,7 @@ podrêczników systemowych, instrukcji technicznych jak i wielu innych
 ciekawych rzeczy.
 
 %prep
-%setup -q -c -T
-unzip -qa %{SOURCE0}
+%setup -q -c
 chmod 644 *
 
 %install
